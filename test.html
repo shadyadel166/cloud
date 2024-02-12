@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script> -->
+    <title>shady</title>
+</head>
+
+<body>
+
+</body>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+    import {getDatabase,ref, set,} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC8a3lH21kc4sKwOddxDlr6L9_CeKonR4k",
+      authDomain: "seraphic-camera-411009.firebaseapp.com",
+      databaseURL: "https://seraphic-camera-411009-default-rtdb.firebaseio.com",
+      projectId: "seraphic-camera-411009",
+      storageBucket: "seraphic-camera-411009.appspot.com",
+      messagingSenderId: "955491576357",
+      appId: "1:955491576357:web:00f04750f85a4b2e8cadcc",
+      measurementId: "G-93SB7BMVFJ"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+
+    ///getting data and setting 
+  const database = getDatabase();
+
+      function writeUserData(name, email, image) { 
+        set(ref(database, "users/" ), {
+            name : name,
+          email: email,
+          image: image,
+        }).then(() => alert("done"));}
+
+
+
+      writeUserData("eltantawyadel@gmail.com", "https://source.unsplash.com/random/900x700/?fruit","eltantawy");
+
+  </script>
+
+</html>
